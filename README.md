@@ -43,7 +43,7 @@ After completing the above modifications, you can run the demo and experience th
 .
 ├── README.md                           ---- Project instruction
 ├── SudMGPSDK                           ---- Mini-Game SDK
-├── SudMGPWrapper                       ---- Mini-Game SDK 接口 封装
+├── SudMGPWrapper                       ---- Mini-Game SDK API wrapper
 ├── app                                 ---- Demo project
 │   ├── src/main/java/com/zegocloud/demo/liveaudioroom  ---- Demo project code
 │       ├── activity                    ---- Activities used in the demo
