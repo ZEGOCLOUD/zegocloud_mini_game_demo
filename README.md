@@ -66,7 +66,7 @@ After completing the above modifications, you can run the demo and experience th
 Refer to the [Video Call Quick start](https://www.zegocloud.com/docs/video-call/quickstart?platform=android&language=java) document to access Video Call SDK
 
 ### 4.2 Integrate Mini-Game SDK
-1. Download the latest version of the SDK from [here]().
+1. Download the [SudMGPSDK](https://github.com/ZEGOCLOUD/zegocloud_mini_game_demo/tree/master/SudMGPSDK) and [SudMGPWrapper](https://github.com/ZEGOCLOUD/zegocloud_mini_game_demo/tree/master/SudMGPWrapper).
 2. Import `SudMGPSDK` and `SudMGPWrapper` modules through the `File -> New -> Import Module` function in Android Studio.
 
 ### 4.3 Copy Project Code
