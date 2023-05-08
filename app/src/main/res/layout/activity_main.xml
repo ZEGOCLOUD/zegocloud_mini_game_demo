@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context=".activity.MainActivity">
+
+  <LinearLayout
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="#0088ff"
+    android:orientation="horizontal"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:layout_marginStart="16dp"
+      android:text="Coins:"
+      android:textColor="@color/white"
+      android:textSize="24sp" />
+
+    <TextView
+      android:id="@+id/coins_count"
+      android:textColor="@color/white"
+      android:textSize="24sp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:layout_marginStart="4dp"
+      android:text="0" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/layout_game"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/title">
+
+    <TextView
+      android:id="@+id/game_Ludo"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:gravity="center_vertical"
+      android:paddingStart="16dp"
+      android:background="#00e079"
+      android:textSize="18sp"
+      android:text="Ludo" />
+
+    <TextView
+      android:id="@+id/game_TeenPatti"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:gravity="center_vertical"
+      android:paddingStart="16dp"
+      android:textSize="18sp"
+      android:background="#2edfa3"
+      android:text="UMO" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/layout_audio_room"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/title">
+
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/live_id"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="275dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="164dp"
+      android:hint="Live ID">
+
+      <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="middle"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+      android:id="@+id/start_live"
+      android:layout_width="275dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="16dp"
+      android:text="Start a live" />
+
+    <Button
+      android:id="@+id/watch_live"
+      android:layout_width="275dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="16dp"
+      android:text="Watch a live" />
+
+  </LinearLayout>
+
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <TextView
+      android:id="@+id/tab_game"
+      android:layout_width="0dp"
+      android:layout_height="48dp"
+      android:layout_weight="1"
+      android:background="#dddddd"
+      android:gravity="center"
+      android:text="Game" />
+
+    <TextView
+      android:id="@+id/tab_audio_room"
+      android:layout_width="0dp"
+      android:layout_height="48dp"
+      android:layout_weight="1"
+      android:background="#eeeeee"
+      android:gravity="center"
+      android:text="Audio Room" />
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

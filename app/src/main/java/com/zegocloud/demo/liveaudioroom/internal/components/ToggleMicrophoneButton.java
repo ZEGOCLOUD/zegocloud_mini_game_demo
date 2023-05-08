@@ -1,0 +1,41 @@
+package com.zegocloud.demo.liveaudioroom.internal.components;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.zegocloud.demo.liveaudioroom.R;
+import com.zegocloud.demo.liveaudioroom.internal.ZEGOSDKManager;
+
+public class ToggleMicrophoneButton extends ZEGOImageButton {
+
+    public ToggleMicrophoneButton(@NonNull Context context) {
+        super(context);
+    }
+
+    public ToggleMicrophoneButton(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public ToggleMicrophoneButton(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    protected void initView() {
+        super.initView();
+        setImageResource(R.drawable.call_icon_mic_on, R.drawable.call_icon_mic_off);
+    }
+
+    @Override
+    public void open() {
+        super.open();
+        ZEGOSDKManager.getInstance().rtcService.openMicrophone(true);
+    }
+
+    @Override
+    public void close() {
+        super.close();
+        ZEGOSDKManager.getInstance().rtcService.openMicrophone(false);
+    }
+}
