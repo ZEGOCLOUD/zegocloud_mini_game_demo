@@ -21,7 +21,8 @@ Server authentication URL：
 | get_user_info | Get user information | xxx | xxx | https://zegocloud.com/get_user_info |
 | report_game_info | Report game data | xxx | xxx | https://zegocloud.com/report_game_info |
 | notify | Game notification | xxx | xxx | https://zegocloud.com/notify |
-You may refer to [the implementation document of the related interfaces](https://zegocloud.feishu.cn/docx/W1uDd7oBMoVY3AxnBvYcj8IMntc)."
+
+You may refer to [the implementation document of the related interfaces](https://zegocloud.feishu.cn/docx/W1uDd7oBMoVY3AxnBvYcj8IMntc).
 
 ## 2. Run the Demo
 ### 2.1 Server Deployment
