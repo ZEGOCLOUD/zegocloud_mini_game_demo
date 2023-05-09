@@ -47,7 +47,6 @@ public class LiveAudioRoomActivity extends AppCompatActivity {
         binding = ActivityLiveAudioRoomBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         boolean isHost = getIntent().getBooleanExtra("host", false);
         MiniGameManager.getInstance().autoJoinGame = isHost;
 
@@ -67,14 +66,18 @@ public class LiveAudioRoomActivity extends AppCompatActivity {
                     finish();
                 } else {
                     if (isHost) {
-                        ZEGOLiveAudioRoomManager.getInstance().setSelfHost();
-                        ZEGOLiveAudioRoomManager.getInstance().takeSeat(0, new ZIMRoomAttributesOperatedCallback() {
-                            @Override
-                            public void onRoomAttributesOperated(String roomID, ArrayList<String> errorKeys,
-                                ZIMError errorInfo) {
+                        // wait roomextraInfo update
+                        binding.getRoot().postDelayed(() -> {
+                            ZEGOLiveAudioRoomManager.getInstance().setSelfHost();
+                            ZEGOLiveAudioRoomManager.getInstance()
+                                .takeSeat(0, new ZIMRoomAttributesOperatedCallback() {
+                                    @Override
+                                    public void onRoomAttributesOperated(String roomID1, ArrayList<String> errorKeys,
+                                        ZIMError errorInfo) {
 
-                            }
-                        });
+                                    }
+                                });
+                        }, 500);
                     }
                     initAfterJoinRoom();
                 }
@@ -133,6 +136,8 @@ public class LiveAudioRoomActivity extends AppCompatActivity {
                     .loadGame(LiveAudioRoomActivity.this, backendUser.getUid(), currentRoomID, game.gameID, code);
 
                 int top = Math.abs(binding.gameAllArea.getTop() - binding.gameRealArea.getTop());
+                // enter game mode, seat will change size
+                top = (int) (top * 0.5f);
                 int bottom = Math.abs(binding.gameAllArea.getBottom() - binding.gameRealArea.getBottom());
                 MiniGameManager.getInstance().setGameSafeZoneMargin(0, top, 0, bottom);
 
@@ -146,10 +151,12 @@ public class LiveAudioRoomActivity extends AppCompatActivity {
                 binding.seatContainer.setLayoutConfig(seatLayoutConfig);
                 binding.seatContainer.updateSeats(ZEGOLiveAudioRoomManager.getInstance().getAudioRoomSeatList());
                 binding.seatContainer.updateSeatViewSize(true);
+
             }
 
             @Override
             public void onGameModeEnd() {
+                Log.d(TAG, "onGameModeEnd() called");
                 MiniGameManager.getInstance().setGameSafeZoneMargin(0, 0, 0, 0);
                 MiniGameManager.getInstance().onDestroy();
 
@@ -160,6 +167,7 @@ public class LiveAudioRoomActivity extends AppCompatActivity {
                 binding.seatContainer.setLayoutConfig(seatLayoutConfig);
                 binding.seatContainer.updateSeats(ZEGOLiveAudioRoomManager.getInstance().getAudioRoomSeatList());
                 binding.seatContainer.updateSeatViewSize(false);
+
             }
         });
     }
@@ -257,6 +265,8 @@ public class LiveAudioRoomActivity extends AppCompatActivity {
             ZEGOSDKManager.getInstance().rtcService.openMicrophone(false);
             ZEGOLiveAudioRoomManager.getInstance().leaveRoom();
             MiniGameManager.getInstance().setGameSafeZoneMargin(0, 0, 0, 0);
+            MiniGameManager.getInstance().onDestroy();
+
         }
     }
 }

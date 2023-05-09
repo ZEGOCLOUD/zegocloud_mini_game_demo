@@ -9,7 +9,7 @@
   <FrameLayout
     android:id="@+id/game_all_area"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent" />
 
   <com.zegocloud.demo.liveaudioroom.components.ZEGOLiveAudioRoomSeatContainer
     android:id="@+id/seat_container"
@@ -26,13 +26,13 @@
     android:id="@+id/game_real_area"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    app:layout_constraintTop_toBottomOf="@+id/seat_container"
-    app:layout_constraintBottom_toTopOf="@+id/bottom_bar" />
+    app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+    app:layout_constraintTop_toBottomOf="@+id/seat_container" />
 
   <com.zegocloud.demo.liveaudioroom.components.BottomMenuBar
     android:id="@+id/bottom_bar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="64dp"
     app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

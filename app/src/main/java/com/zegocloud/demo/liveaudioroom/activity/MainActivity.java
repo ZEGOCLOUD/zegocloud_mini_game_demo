@@ -296,10 +296,19 @@ public class MainActivity extends AppCompatActivity {
                 ZEGOLiveAudioRoomManager.getInstance().coinsConsumption(backendUser.getUid(), game.coin, new Result() {
                     @Override
                     public void onResult(int errorCode, String message) {
-                        Intent intent = new Intent(MainActivity.this, GameRoomActivity.class);
-                        intent.putExtra("gameID", game.gameID);
-                        intent.putExtra("roomID", roomID);
-                        startActivity(intent);
+                        if (errorCode == 0) {
+                            BackendUser backendUser = ZEGOLiveAudioRoomManager.getInstance().getBackendUser();
+                            int coins = backendUser.getCoins();
+                            backendUser.setCoins(coins - game.coin);
+                            runOnUiThread(() -> {
+                                binding.coinsCount.setText(String.valueOf(backendUser.getCoins()));
+
+                                Intent intent = new Intent(MainActivity.this, GameRoomActivity.class);
+                                intent.putExtra("gameID", game.gameID);
+                                intent.putExtra("roomID", roomID);
+                                startActivity(intent);
+                            });
+                        }
                     }
                 });
             }

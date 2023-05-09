@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.FrameLayout;
@@ -135,7 +134,6 @@ public class ZEGOLiveAudioRoomSeatView extends FrameLayout {
     private static final String TAG = "ZEGOLiveAudioRoomSeatVi";
 
     public void onUserUpdate(ZEGOCLOUDUser zegocloudUser) {
-        Log.d(TAG, "onUserUpdate() called with: zegocloudUser = [" + zegocloudUser + "]");
         if (zegocloudUser != null) {
             addUserToSeat(zegocloudUser);
         } else {

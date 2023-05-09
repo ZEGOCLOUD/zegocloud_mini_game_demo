@@ -45,6 +45,10 @@ public class BackendUser {
         return coins;
     }
 
+    public void setCoins(Integer coins) {
+        this.coins = coins;
+    }
+
     public Integer getIsAi() {
         return isAi;
     }

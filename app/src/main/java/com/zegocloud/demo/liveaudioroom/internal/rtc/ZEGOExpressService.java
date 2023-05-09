@@ -487,6 +487,7 @@ public class ZEGOExpressService {
 
     public void clear() {
         roomUserMap.clear();
+        roomExtraInfoMap.clear();
         userIDList.clear();
         roomUserChangeListenerList.clear();
         roomStreamChangeListenerList.clear();
@@ -660,7 +661,7 @@ public class ZEGOExpressService {
                     extraInfoList.add(roomExtraInfo);
 
                     Log.d(TAG,
-                        "setRTCRoomExtraInfo() called with: roomExtraInfo.key = [" + roomExtraInfo.key + "], value = ["
+                        "setRTCRoomExtraInfo() result with: roomExtraInfo.key = [" + roomExtraInfo.key + "], value = ["
                             + roomExtraInfo.value + "]");
 
                     for (RoomExtraInfoListener listener : roomExtraInfoListenerList) {

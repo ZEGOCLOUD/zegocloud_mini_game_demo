@@ -159,6 +159,7 @@ public class ZEGOLiveAudioRoomManager {
             public void onRoomExtraInfoUpdate(ArrayList<ZegoRoomExtraInfo> roomExtraInfoList) {
                 for (ZegoRoomExtraInfo extraInfo : roomExtraInfoList) {
                     if (extraInfo.key.equals(KEY)) {
+                        Log.d(TAG, "onRoomExtraInfoUpdate() called with: extraInfo = [" + extraInfo.value + "]");
                         try {
                             jsonObject = new JSONObject(extraInfo.value);
                             if (jsonObject.has("host")) {
@@ -327,6 +328,7 @@ public class ZEGOLiveAudioRoomManager {
 
     public void setSelfHost() {
         ZEGOCLOUDUser localUser = ZEGOSDKManager.getInstance().rtcService.getLocalUser();
+        Log.d(TAG, "setSelfHost() called:" + jsonObject.toString());
         try {
             jsonObject.put("host", localUser.userID);
         } catch (JSONException e) {
@@ -538,6 +540,7 @@ public class ZEGOLiveAudioRoomManager {
         hostChangeListenerList.clear();
         seatUserChangeListenerList.clear();
         hostUserID = null;
+        currentGame = null;
     }
 
     public void addSeatUserChangeListener(SeatUserChangeListener listener) {
