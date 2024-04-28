@@ -1,0 +1,33 @@
+PODS:
+  - MJExtension (3.4.1)
+  - SudMGP (1.3.5)
+  - SudMGPWrapper (1.0.6):
+    - SudMGPWrapper/SudMGPWrapper (= 1.0.6)
+  - SudMGPWrapper/SudMGPWrapper (1.0.6):
+    - MJExtension (~> 3.4.1)
+    - SudMGP (= 1.3.5)
+  - ZegoExpressEngine (3.12.4)
+
+DEPENDENCIES:
+  - SudMGPWrapper (from `./`)
+  - ZegoExpressEngine
+
+SPEC REPOS:
+  trunk:
+    - MJExtension
+    - SudMGP
+    - ZegoExpressEngine
+
+EXTERNAL SOURCES:
+  SudMGPWrapper:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
+  SudMGP: 7ab2d4b484cd32009cc2933b3350aeccd3ec9b57
+  SudMGPWrapper: f736dd2b225ed1ed4d1eb09b0f6864073caa2b02
+  ZegoExpressEngine: 4134bbfaecf5ce4ab5c47338ff817942d646750f
+
+PODFILE CHECKSUM: 2ba6118044d86e085353c1267ec80fa865046477
+
+COCOAPODS: 1.14.3

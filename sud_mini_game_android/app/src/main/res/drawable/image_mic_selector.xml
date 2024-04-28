@@ -1,0 +1,7 @@
+<!-- image_mic_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 默认状态下的图片 -->
+    <item android:drawable="@drawable/setting_mic_on" android:state_selected="false"/>
+    <!-- 选中状态下的图片 -->
+    <item android:drawable="@drawable/setting_mic_off" android:state_selected="true"/>
+</selector>
