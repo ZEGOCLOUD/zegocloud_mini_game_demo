@@ -47,6 +47,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLz-mP-xsg">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zrd-RG-U0z">
                                 <rect key="frame" x="60" y="717" width="71" height="61"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,11 +65,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="TDV-Bn-2c3" firstAttribute="bottom" secondItem="Zrd-RG-U0z" secondAttribute="bottom" constant="40" id="9Ku-QP-h9o"/>
+                            <constraint firstItem="wLz-mP-xsg" firstAttribute="top" secondItem="lv3-s2-B7G" secondAttribute="top" id="CTb-Nv-DEb"/>
+                            <constraint firstAttribute="bottom" secondItem="wLz-mP-xsg" secondAttribute="bottom" id="JPT-SC-gXN"/>
+                            <constraint firstItem="wLz-mP-xsg" firstAttribute="leading" secondItem="TDV-Bn-2c3" secondAttribute="leading" id="Nob-i9-kmr"/>
+                            <constraint firstItem="TDV-Bn-2c3" firstAttribute="trailing" secondItem="wLz-mP-xsg" secondAttribute="trailing" id="YO9-7b-s5z"/>
                             <constraint firstItem="Zrd-RG-U0z" firstAttribute="leading" secondItem="TDV-Bn-2c3" secondAttribute="leading" constant="60" id="feL-Mq-Nf7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nOr-cP-cBH"/>
                     <connections>
+                        <outlet property="gameView" destination="wLz-mP-xsg" id="G4a-Oy-GUe"/>
                         <outlet property="micButton" destination="Zrd-RG-U0z" id="VvF-eC-B3I"/>
                     </connections>
                 </viewController>

@@ -24,6 +24,8 @@ class GameViewController: UIViewController {
     let sudFSTAPPDecorator = SudFSTAPPDecorator()
     let sudFSMMGDecorator = SudFSMMGDecorator()
     
+    
+    @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var micButton: UIButton!
     
     override func viewDidLoad() {
@@ -41,6 +43,7 @@ class GameViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        destroyGame()
         destroyEngine()
     }
     
@@ -49,7 +52,7 @@ class GameViewController: UIViewController {
         ZegoExpressEngine.shared().muteMicrophone(sender.isSelected)
     }
     
-    func initGame() {
+    private func initGame() {
         getCode(userId: userID) { code, error, retCode in
             self.initSudMGPSDK(gameID: self.gameID, roomID: self.roomID, userID: self.userID, code: code)
         } fail: { error in
@@ -57,14 +60,9 @@ class GameViewController: UIViewController {
         }
     }
     
-    func logoutGame() {
-        sudFSMMGDecorator.clearAllStates()
-        sudFSTAPPDecorator.destroyMG()
-    }
-    
-    func initSudMGPSDK(gameID: Int, roomID: String, userID: String, code: String) {
+    private func initSudMGPSDK(gameID: Int, roomID: String, userID: String, code: String) {
         // Ensure that no game is loaded before initialization, destroy SudMGP to guarantee it
-        logoutGame()
+        destroyGame()
         
         // Initialize SudMGP SDK
         let paramModel = SudInitSDKParamModel()
@@ -81,7 +79,12 @@ class GameViewController: UIViewController {
         }
     }
     
-    func loadGame(gameID: Int, roomID: String, userID: String, code: String) {
+    private func destroyGame() {
+        sudFSMMGDecorator.clearAllStates()
+        sudFSTAPPDecorator.destroyMG()
+    }
+    
+    private func loadGame(gameID: Int, roomID: String, userID: String, code: String) {
         // Set current logged-in user
         self.sudFSMMGDecorator.setCurrentUserId(userID)
         
@@ -92,7 +95,7 @@ class GameViewController: UIViewController {
         paramModel?.code = code
         paramModel?.mgId = gameID
         paramModel?.language = "en-US"
-        paramModel?.gameViewContainer = self.view
+        paramModel?.gameViewContainer = self.gameView
         
         let iSudFSTAPP = SudMGP.loadMG(paramModel!, fsmMG: sudFSMMGDecorator)
         sudFSTAPPDecorator.iSudFSTAPP = iSudFSTAPP
