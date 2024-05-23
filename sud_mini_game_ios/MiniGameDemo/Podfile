@@ -8,6 +8,6 @@ target 'MiniGameDemo' do
   # Pods for MiniGameDemo
 
   pod 'ZegoExpressEngine'
-  pod 'SudMGPWrapper', :path => './'
+  pod 'SudMGPWrapper', :path => './SUDGameSDK'
 
 end
